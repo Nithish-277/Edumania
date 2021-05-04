@@ -5,6 +5,7 @@ const expressLayouts = require("express-ejs-layouts");
 const passport = require("passport");
 const flash = require("connect-flash");
 const session = require("express-session");
+const cors = require("cors");
 
 // Passport Config
 require("./config/passport")(passport);
@@ -34,6 +35,7 @@ app.use(
 );
 
 // Passport middleware
+app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -51,12 +53,10 @@ app.use(function (req, res, next) {
 // Routes
 // app.use("/", require("./routes/index.js"));
 var indexroute = require("./routes/index.js");
-app.use('/', indexroute.router);
+app.use("/", indexroute.router);
 app.use("/users", require("./routes/users.js"));
 
 // app.get('/', (req,res)=> {res.send('API Running');});
 // const PORT = process.env.PORT || 5000;
-
-
 
 app.use("/schools", require("./routes/api/schools"));

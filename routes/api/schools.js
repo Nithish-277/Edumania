@@ -27,6 +27,28 @@ router.post("/", async (req, res) => {
   }
 });
 
+//@route : /schools/search
+//@method : Search school on parameters
+
+router.post("/search", async (req, res) => {
+  try {
+    const { type, capacity, location, city } = req.body;
+    const schools = await School.find();
+    const reqSch = schools.filter((sch) => {
+      return (
+        sch.type === type ||
+        sch.capacity === capacity ||
+        sch.location === location ||
+        sch.city === city
+      );
+    });
+    const data = await res.json(reqSch);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
+});
+
 // @route: /schools
 // @method : Get all schools
 
