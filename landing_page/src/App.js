@@ -12,6 +12,9 @@ import Register from "./components/Register";
 import Verify from "./components/Verify";
 import VerifyEmail from "./components/VerifyEmail";
 import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import FillDetails from "./components/FillDetails";
+import FindSchools from "./components/FindSchools";
 
 const App = () => {
   return (
@@ -22,6 +25,7 @@ const App = () => {
         <section className="container">
           <Switch>
             <Route exact path="/notice" component={Notices} />
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route
               exact
               path="/searchnotice"
@@ -37,6 +41,8 @@ const App = () => {
                 <DisplaySchools schools={props.location.state.data} />
               )}
             />
+            <Route path="/findSchools" component={FindSchools} />
+            <Route path="/fillDetails" component={FillDetails}></Route>
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/verify" component={Verify}></Route>

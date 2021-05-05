@@ -6,6 +6,8 @@ const passport = require("passport");
 const flash = require("connect-flash");
 const session = require("express-session");
 const cors = require("cors");
+const bodyParser = require("body-parser");
+const paymentRoute = require("./paymentRoute");
 
 // Passport Config
 require("./config/passport")(passport);
@@ -22,6 +24,7 @@ mongoose
 app.use(expressLayouts);
 app.set("view engine", "ejs");
 
+app.use(bodyParser.json());
 app.use(express.json({ extended: false }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -62,3 +65,5 @@ app.use("/users", require("./routes/users.js"));
 app.use("/schools", require("./routes/api/schools"));
 
 app.use("/api/notices", require("./routes/notice/noticeRoutes.js"));
+
+app.use("/api", paymentRoute);

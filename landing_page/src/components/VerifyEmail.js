@@ -33,7 +33,7 @@ const VerifyEmail = () => {
             otp,
           });
           console.log("Redirecting to Sign Up Page");
-          history.push("/register");
+          history.push("/dashboard");
           toast.success(res.data.message);
         })
         .catch((err) => {
