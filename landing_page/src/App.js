@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
+import Notices from "./components/Notices";
+import DisplayNotices from "./components/DisplayNotices";
 import Landing from "./components/Landing";
 import Navbar from "./components/Navbar";
 import Schools from "./components/Schools";
@@ -19,6 +21,14 @@ const App = () => {
         <Route exact path="/" component={Landing} />
         <section className="container">
           <Switch>
+            <Route exact path="/notice" component={Notices} />
+            <Route
+              exact
+              path="/searchnotice"
+              component={(props) => (
+                <DisplayNotices notices={props.location.state.data} />
+              )}
+            />
             <Route exact path="/school" component={Schools} />
             <Route
               exact

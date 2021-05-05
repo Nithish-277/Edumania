@@ -60,3 +60,5 @@ app.use("/users", require("./routes/users.js"));
 // const PORT = process.env.PORT || 5000;
 
 app.use("/schools", require("./routes/api/schools"));
+
+app.use("/api/notices", require("./routes/notice/noticeRoutes.js"));

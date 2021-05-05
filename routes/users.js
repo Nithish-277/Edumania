@@ -6,7 +6,7 @@ var nodemailer = require("nodemailer");
 var smtpTransport = require("nodemailer-smtp-transport");
 var otpGenerator = require("otp-generator");
 const TwoFactor = new (require("2factor"))(
-  "14e03aaa-a580-11eb-80ea-0200cd936042"
+  "00d281c1-acfe-11eb-80ea-0200cd936042"
 );
 
 // Load User model
