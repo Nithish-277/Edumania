@@ -16,3 +16,9 @@ Features :
 	 - Clients can make use of this service to find all the notices given by a particular Organization.
  - **EAD feature**
 	 - Security for accessing API and logging in
+
+To run this project:
+
+- Go to Edumania folder run npm install
+- Then go to landing page folder and run npm install 
+- and back to Edumania folder and run npm run dev
