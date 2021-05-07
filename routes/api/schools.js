@@ -91,7 +91,7 @@ router.get("/:city", async (req, res) => {
 // @route : /schools/:id
 // @method : Delete by id
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
   try {
     const schoolDelete = await School.findByIdAndRemove(
       req.params.id.substring(1)

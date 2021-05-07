@@ -33,7 +33,7 @@ router.get("/", (req, res) => {
   Notice.find()
     .sort({ createdAt: -1 })
     .then((result) => {
-      return res.json({ notices: result, title: "All notices" });
+      return res.json({result});
     })
     .catch((err) => {
       console.log(err);
